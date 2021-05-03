@@ -1,0 +1,61 @@
+MySQL:
+=========
+
+create table order2(
+order_number VARCHAR(25) NOT NULL,
+date_entered DATETIME,
+customer_number VARCHAR(25),
+item_total decimal(10,2),
+shipping_total decimal(10,2),
+handling_total decimal(10,2),
+tax_total decimal(10,2),
+merchandise_discount decimal(10,2),
+nonmerchandise_discount decimal(10,2),
+order_total decimal(10,2),
+merchandise_discount_type VARCHAR(25),
+non_merchandise_discount_type VARCHAR(100),
+non_merchandise_discount_description VARCHAR (1000),
+coupon_code VARCHAR(100),
+status INT not null,
+source   VARCHAR(100),
+store_number INT,
+associated_id VARCHAR(25),
+ship_date DATETIME,
+shipping_method VARCHAR(100),
+tracking_number VARCHAR(100),
+shipping_first_name VARCHAR(100),
+shipping_last_name VARCHAR(100),
+shipping_address1 VARCHAR(100),
+shipping_address2 VARCHAR(100),
+shipping_address3 VARCHAR(100),
+shipping_city VARCHAR(100),
+shipping_state VARCHAR(100),
+shipping_zipcode VARCHAR(25),
+shipping_country VARCHAR(100),
+shipping_phone VARCHAR(25),
+billing_first_name VARCHAR(100),
+billing_last_name VARCHAR(100),
+billing_address1 VARCHAR(100),
+billing_address2 VARCHAR(100),
+billing_address3 VARCHAR(100),
+billing_city VARCHAR(100),
+billing_state VARCHAR(100),
+billing_zipcode VARCHAR(25),
+billing_country VARCHAR(100),
+billing_phone VARCHAR(25),
+create_date DATETIME,
+modified_date DATETIME,
+PRIMARY KEY (order_number)
+);
+
+***
+status -- 0=NotSet, 1=Misc, 2=PreOrder, 3=BackOrder, 4=Pending, 5=Hold, 6=Processing, 7=Shipped, 8=Completed, 9=Returned, 10=Canceled, 11=Unknown
+
+
+INSERT INTO order2(
+order_number, date_entered, customer_number, item_total, shipping_total, handling_total, tax_total, merchandise_discount, nonmerchandise_discount, order_total, merchandise_discount_type, non_merchandise_discount_type, non_merchandise_discount_description, coupon_code, status, source, store_number,associated_id,ship_date,shipping_method,tracking_number, shipping_first_name, shipping_last_name, shipping_address1, shipping_address2, shipping_address3,shipping_city, shipping_state, shipping_zipcode, shipping_country, shipping_phone, billing_first_name, billing_last_name, billing_address1, billing_address2, billing_address3, billing_city, billing_state, billing_zipcode, billing_country, billing_phone, create_date, modified_date)
+values("Ord1", NOW(), "cust1", 100.25, 2.25, 2.00, 4.50, 1.10, 4.50, 90.23, "Merchandise discount type", "Non_merchandise_discount_type","non_merchandise_discount_description", "coupon00012", 2, "Store", 125, "associate001", NOW(), "UPS", "tracking0123", "Imran", "Ahmed", "207 W Fremont Dr","Mountain House", "", "Tracy","California","93551","USA","+18476821236","Imran","Ahmed","billing_address1","billing_address2","billing_address3","Tracy","California","93551","USA","+918897654",NOW(),NOW());
+
+INSERT INTO order2(
+order_number, date_entered, customer_number, item_total, shipping_total, handling_total, tax_total, merchandise_discount, nonmerchandise_discount, order_total, merchandise_discount_type, non_merchandise_discount_type, non_merchandise_discount_description, coupon_code, status, source, store_number,associated_id,ship_date,shipping_method,tracking_number, shipping_first_name, shipping_last_name, shipping_address1, shipping_address2, shipping_address3,shipping_city, shipping_state, shipping_zipcode, shipping_country, shipping_phone, billing_first_name, billing_last_name, billing_address1, billing_address2, billing_address3, billing_city, billing_state, billing_zipcode, billing_country, billing_phone, create_date, modified_date)
+values("Ord2", NOW(), "cust2", 100.25, 2.25, 2.00, 4.50, 1.10, 4.50, 90.23, "Misc type", "others","test Description", "coupon00013", 5, "Store", 120, "associate005", NOW(), "UPS", "tracking01299", "Imran", "Ahmed", "207 W Fremont Dr","Mountain House", "", "Tracy","California","93551","USA","+18476821236","Imran","Ahmed","billing_address1","billing_address2","billing_address3","Tracy","California","93551","USA","+918897654",NOW(),NOW());
